@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face
+{
+    font-family: 'main-font';
+    src: url('../fonts/Vazir-Variable.woff2') format('woff2');
+}
+
+html {
+    direction: rtl;
+    text-align: right;
+    font-family: main-font, 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
