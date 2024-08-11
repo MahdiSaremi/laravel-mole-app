@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c418df4f6c7e0487cf3a353a409d606b",
+    "content-hash": "3e9e363e648977c361b7682b57f4911e",
     "packages": [
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -3642,6 +3642,56 @@
                 }
             ],
             "time": "2024-04-27T21:32:50+00:00"
+        },
+        {
+            "name": "rapid/laplus",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/MahdiSaremi/Laplus.git",
+                "reference": "b58d55cdf47c5ae8fb38210a442254c2fca08b86"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/MahdiSaremi/Laplus/zipball/b58d55cdf47c5ae8fb38210a442254c2fca08b86",
+                "reference": "b58d55cdf47c5ae8fb38210a442254c2fca08b86",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^11.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Rapid\\Laplus\\LaplusServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Rapid\\Laplus\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mahdi Saremi",
+                    "email": "mahdisarmi00@gmail.com"
+                }
+            ],
+            "description": "Laravel Plus+",
+            "support": {
+                "issues": "https://github.com/MahdiSaremi/Laplus/issues",
+                "source": "https://github.com/MahdiSaremi/Laplus/tree/1.4.0"
+            },
+            "time": "2024-08-06T20:34:50+00:00"
         },
         {
             "name": "robsontenorio/mary",

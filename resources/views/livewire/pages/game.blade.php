@@ -1,23 +1,43 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Js;
 use function Livewire\Volt\
-{layout, state, title};
+{hydrate, layout, on, state, title
+};
 
 layout('layouts.app');
 
-state(['page' => 2]);
+state(['page' => 1]);
+
+state(['user' => fn() => auth()->user()])->type(User::class);
+
+on(
+    [
+        'mineClick' => function ()
+        {
+            $this->user->coin++;
+            $this->user->save();
+            $this->skipRender();
+        }
+    ]
+);
 
 ?>
 
-<div class="min-h-screen flex flex-col">
+<div class="min-h-screen flex flex-col" x-data="{
+    user: Alpine.reactive({{ Js::encode($user) }}),
+}">
     <div class="p-4 flex items-center gap-2">
         <img src="{{ asset('icons/user.png') }}" class="size-8">
-        <span>مهدی صارمی</span>
+        <span x-text="user.name"></span>
         <div class="mx-auto"></div>
         <div class="bg-gray-200 px-8 py-2 rounded-lg flex flex-col items-center justify-center gap-1">
             <span class="text-xs text-gray-500">درآمد در ساعت</span>
             <div class="flex items-center gap-1">
-                <span class="text-sm">2.44M+</span>
+                <span class="text-sm">
+                    <span x-text="user.profit"></span>+
+                </span>
                 <img src="{{ asset('icons/coin.png') }}" class="size-4">
             </div>
         </div>
@@ -26,7 +46,8 @@ state(['page' => 2]);
     <hr>
 
     @if ($page >= 0 && $page <= 4)
-        <livewire:dynamic-component :is="'nav-pages.'.['home', 'mine', 'friends', 'earn', 'airdrop'][$page]" :key="$page" />
+        <livewire:dynamic-component :is="'nav-pages.'.['home', 'mine', 'friends', 'earn', 'airdrop'][$page]"
+                                    :key="$page"/>
     @endif
 
     <div class="h-16"></div>
